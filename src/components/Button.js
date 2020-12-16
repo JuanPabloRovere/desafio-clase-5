@@ -15,6 +15,6 @@ export default function Button({suma, onClick, counter, setCounter}){
     let amount = suma ? (counter + 1) : (counter -1);
 
     return(
-    <button onClick={onClick(amount)}>{sign}</button>
+        <button type="button" class="btn btn-primary btn-sm"onClick={onClick(amount)}>{sign}</button>
         )
 }

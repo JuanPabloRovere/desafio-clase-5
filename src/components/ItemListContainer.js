@@ -13,7 +13,6 @@ function ItemListContainer() {
             alert("no hay stock")
         }else{
             alert(`se van a agregar ${counter}`) 
-
                }
     }
 }
@@ -21,7 +20,7 @@ function ItemListContainer() {
     return (
         <div class="card">
           <div class="card-body">
-             <ItemCount onAdd={handleAdd} stock={stock} inicial={5}  />
+             <ItemCount onAdd={handleAdd} stock={stock} inicial={1}  />
 </div>
 </div>
     );
