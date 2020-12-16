@@ -1,35 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
+import Display from "./Display";
+import Button from "./Button";
+import Add from "./Add";
 
-const Contador = () => {
-  const [contador, setContador] = React.useState(0);
+const style = {
+  margin:"100 px auto",
+  width: 300,
+  height: 100,
+  backgroundColor:"black"
+}
 
-  const aumentarContador = () => {
-    setContador(contador + 1);
-    if(contador > 9){
-        return(setContador(10))
-    }
-  };
+const upper ={
+  display:"flex",
+  justifyConten:"space-around"
+}
 
-  const restarContador = () => {
-    setContador(contador - 1)
-    if (contador < 1 ){
-        return(setContador(0));
-    };
-  };
+export default function itemCount({onAdd, stock, inicial}){
 
-  const resetiar = () => {
-    setContador(0);
-  };
+let [counter, setCounter] = useState(inicial);
 
-  return (
-    <>
-      <p>Remera {contador}</p>
-      <button type="button" class="btn btn-primary btn-sm" onClick={aumentarContador}>+</button>
-      <button type="button" class="btn btn-primary btn-sm" onClick={resetiar}>0</button>
-      <button type="button" class="btn btn-primary btn-sm" onClick={restarContador}>-</button>
- 
-    </>
-  );
-};
+ const handleClick =(amount)=>{
+   return(
+     ()=>{
+       let total = (amount < 0) ? 0:amount;
+       let limiter = (total > stock) ? stock : total;
+       setCounter(limiter);
 
-export default Contador;
+     }
+   )
+ };
+
+ let prop = {counter, setCounter}
+
+  return(
+    <div className="itemCount" {...{style}}>
+      
+    <div className="upper" style={upper}>
+      <Button suma = {false} onClick={handleClick}{...{prop}} /> 
+      <Display value={counter} /> 
+      <Button suma = {true} onClick={handleClick}{...{prop}}/>
+    </div>
+
+    <div className="lower">
+      <Add onAdd = {onAdd}/>
+    </div>
+
+    </div>
+  )
+}
