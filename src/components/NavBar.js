@@ -1,5 +1,6 @@
 import React from 'react'
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
@@ -26,6 +27,7 @@ function NavBar() {
         </div>
       </li>
       <CartWidget />
+      <Link />
     </ul>
     <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

@@ -20,7 +20,9 @@ function ItemList(props){
     <div>
     {items ? 
     items.map((i,index)=>(
-      <Item key={index} nombre={i.nombre} precio={i.precio} categoria={i.categoria}/>
+     <div> <Item key={index} nombre={i.nombre} precio={i.precio} categoria={i.categoria}/>
+     </div>
+     
     ))
     : 
 <blockquote class="blockquote">
