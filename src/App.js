@@ -15,6 +15,7 @@ export default function App() {
       <Switch>
       <Route exact path="/" component={ItemListContainer}/>
       <Route path='/itemdetail/:id' component={ItemDetailContainer}/>
+      <Route path="/item/:id" component={ItemDetailContainer}/>
       </Switch>
       </BrowserRouter>
     </div>
