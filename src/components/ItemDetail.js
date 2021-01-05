@@ -1,27 +1,22 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
+import ItemCount from "./ItemCount";
 
- function ItemDetail(props){
+function ItemDetail(props) {
+  const [count, setCount] = useState(0);
 
-const [count, setCount] = useState(0)
-
-useEffect(()=>{
-  if(count < 0){
-    setCount(0)
-  }else{
-    if(count > 10){
-      setCount(10)
-    }
+  function giveMeCount(c) {
+    setCount(c);
   }
-},[count]) 
 
-  return(
+  return (
     <div>
-    <h6>{props.nombre}</h6>
-    <span>Precio: {props.precio}</span><br></br>
-    <input type="button" value="+" onClick={()=>setCount(count+1)}/>
-    {count}
-    <input type="button" value="-" onClick={()=>setCount(count-1)}/>
+      <ItemCount
+        func={giveMeCount}
+        nombre={props.nombre}
+        precio={props.precio}
+      />
+      <input type="button" value={`Comprar ${count}`} />
     </div>
-  )
+  );
 }
 export default ItemDetail;

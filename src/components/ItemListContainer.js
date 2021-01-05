@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemCount from "./ItemCount";
 import ItemList from './ItemList';
 
 
@@ -25,9 +24,7 @@ function ItemListContainer() {
     return (
         <div class="card">
           <div class="card-body">
-      
-             <ItemCount onAdd={handleAdd} stock={stock} inicial={1}  />  
-             <ItemList />    
+                   <ItemList />    
 </div>
 </div>
     );
